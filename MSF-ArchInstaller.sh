@@ -1,6 +1,6 @@
-echo 'Initializing installation of Metasploit Framework from Github.' &> ~/LOGFILE.txt
-echo "Installation started from $USER at $HOSTNAME at " &>> ~/LOGFILE.txt
-date &>> ~/LOGFILE.txt
+echo 'Initializing installation of Metasploit Framework from Github.' 2> ~/LOGFILE.txt
+echo "Installation started from $USER at $HOSTNAME at " 2>> ~/LOGFILE.txt
+date 2>> ~/LOGFILE.txt
 
 
 echo '***********************************************************'
@@ -17,25 +17,25 @@ echo '* Checking if system is up to date, updating(if necessary)*'
 echo '* and installing dependancies... **************************' 
 echo '***********************************************************'
 echo ''
-sudo pacman -Syyu --noconfirm &>> ~/LOGFILE.txt
+sudo pacman -Syyu --noconfirm 2>> ~/LOGFILE.txt
 
 
-sudo pacman -S --needed --noconfirm wget git gcc patch curl zlib readline autoconf automake diffutils make libtool bison subversion gnupg postgresql python python2-pysqlite-legacy gtk2 pygtk &>> ~/LOGFILE.txt
+sudo pacman -S --needed --noconfirm wget git gcc patch curl zlib readline autoconf automake diffutils make libtool bison subversion gnupg postgresql python python2-pysqlite-legacy gtk2 pygtk 2>> ~/LOGFILE.txt
 
 echo '***********************************************************'
 echo '* Downloading,compiling & installing Ruby 2.1.5 from AUR. *' 
 echo '***********************************************************'
 echo ''
 
-wget -P /tmp https://aur.archlinux.org/packages/ru/ruby-2.1/ruby-2.1.tar.gz  &>> ~/LOGFILE.txt
+wget -P /tmp https://aur.archlinux.org/packages/ru/ruby-2.1/ruby-2.1.tar.gz  2>> ~/LOGFILE.txt
 
 cd /tmp
 
-tar -xvf ruby-2.1.tar.gz  &>> ~/LOGFILE.txt
+tar -xvf ruby-2.1.tar.gz  2>> ~/LOGFILE.txt
 
 cd ruby-2.1
 
-makepkg -s  &>> ~/LOGFILE.txt
+makepkg -s  2>> ~/LOGFILE.txt
 
 sudo pacman -U ruby*.pkg.tar.xz 
 
@@ -57,7 +57,7 @@ echo '* bundler *************************************************'
 echo '***********************************************************'
 echo ''
 
-gem install wirble sqlite3 bundler &>> ~/LOGFILE.txt
+gem install wirble sqlite3 bundler 2>> ~/LOGFILE.txt
 
 echo '***********************************************************'
 echo '* Creating installation directory /opt/development ********' 
@@ -72,17 +72,17 @@ sudo chown -R $USERNAME:$USERNAME /opt/development
 
 cd /opt/development
 
-svn co https://svn.nmap.org/nmap &>> ~/LOGFILE.txt
+svn co https://svn.nmap.org/nmap 2>> ~/LOGFILE.txt
 
 cd nmap
 
-./configure &>> ~/LOGFILE.txt
+./configure 2>> ~/LOGFILE.txt
 
-make &>> ~/LOGFILE.txt
+make 2>> ~/LOGFILE.txt
 
-sudo make install &>> ~/LOGFILE.txt
+sudo make install 2>> ~/LOGFILE.txt
 
-make clean &>> ~/LOGFILE.txt
+make clean 2>> ~/LOGFILE.txt
 
 
 echo '***********************************************************'
@@ -99,7 +99,7 @@ read -p "* Press [Enter] key to continue...*************************"
 if ! ( locale -a | grep "en_US.utf8" ) ; then
 	echo "* Locales not found. Generating...*************************"
 	sudo nano /etc/locale.gen
-	sudo locale-gen &>> ~/LOGFILE.txt
+	sudo locale-gen 2>> ~/LOGFILE.txt
 	else
 	echo "* Locales found. Nothing to do here. **********************"
 fi
@@ -110,13 +110,13 @@ echo '* the user msf and the database msf.***********************'
 echo '***********************************************************'
 echo ''
 
-sudo systemctl start postgresql &>> ~/LOGFILE.txt
+sudo systemctl start postgresql 2>> ~/LOGFILE.txt
 
-sudo systemctl enable postgresql &>> ~/LOGFILE.txt
+sudo systemctl enable postgresql 2>> ~/LOGFILE.txt
 
-sudo -u postgres createuser msf -P -S -R -D &>> ~/LOGFILE.txt
+sudo -u postgres createuser msf -P -S -R -D 2>> ~/LOGFILE.txt
 
-sudo -u postgres createdb -O msf msf &>> ~/LOGFILE.txt
+sudo -u postgres createdb -O msf msf 2>> ~/LOGFILE.txt
 
 cd /opt/development
 
@@ -126,11 +126,11 @@ echo '* After cloning is complete,bundle install will be run so *'
 echo '* all the required gems will be installed directly. *******'
 echo '***********************************************************'
 echo ''
-git clone https://github.com/rapid7/metasploit-framework.git &>> ~/LOGFILE.txt
+git clone https://github.com/rapid7/metasploit-framework.git 2>> ~/LOGFILE.txt
 
 cd metasploit-framework
 
-bundle install &>> ~/LOGFILE.txt
+bundle install 2>> ~/LOGFILE.txt
 
 sudo chmod a+r /usr/lib/ruby/gems/2.1.0/gems/robots-0.10.1/lib/robots.rb
 
@@ -141,11 +141,11 @@ echo '* msfconsole can connect to postgres automatically. *******'
 echo '***********************************************************'
 echo ''
 
-sudo bash -c 'for MSF in $(ls msf*); do ln -s $PWD/$MSF /usr/local/bin/$MSF;done' &>> ~/LOGFILE.txt
+sudo bash -c 'for MSF in $(ls msf*); do ln -s $PWD/$MSF /usr/local/bin/$MSF;done' 2>> ~/LOGFILE.txt
 
-sudo echo -e 'production:\n adapter: postgresql\n database: msf\n username: msf\n password: \n host: 127.0.0.1\n port: 5432\n pool: 75\n timeout: 5\n' > /opt/development/metasploit-framework/config/database.yml &>> ~/LOGFILE.txt
+sudo echo -e 'production:\n adapter: postgresql\n database: msf\n username: msf\n password: \n host: 127.0.0.1\n port: 5432\n pool: 75\n timeout: 5\n' > /opt/development/metasploit-framework/config/database.yml 2>> ~/LOGFILE.txt
 
-sudo sh -c "echo export MSF_DATABASE_CONFIG=/opt/development/metasploit-framework/config/database.yml >> /etc/profile" &>> ~/LOGFILE.txt
+sudo sh -c "echo export MSF_DATABASE_CONFIG=/opt/development/metasploit-framework/config/database.yml >> /etc/profile" 2>> ~/LOGFILE.txt
 
 source /etc/profile
 
@@ -158,17 +158,17 @@ echo '***********************************************************'
 echo ''
 
 
-curl -# -o /tmp/armitage.tgz http://www.fastandeasyhacking.com/download/armitage-latest.tgz &>> ~/LOGFILE.txt
+curl -# -o /tmp/armitage.tgz http://www.fastandeasyhacking.com/download/armitage-latest.tgz 2>> ~/LOGFILE.txt
 
-sudo tar -xvzf /tmp/armitage.tgz -C /opt/development &>> ~/LOGFILE.txt
+sudo tar -xvzf /tmp/armitage.tgz -C /opt/development 2>> ~/LOGFILE.txt
 
-sudo ln -s /opt/development/armitage/armitage /usr/local/bin/armitage &>> ~/LOGFILE.txt
+sudo ln -s /opt/development/armitage/armitage /usr/local/bin/armitage 2>> ~/LOGFILE.txt
 
-sudo ln -s /opt/development/armitage/teamserver /usr/local/bin/teamserver &>> ~/LOGFILE.txt
+sudo ln -s /opt/development/armitage/teamserver /usr/local/bin/teamserver 2>> ~/LOGFILE.txt
 
-sudo sh -c "echo java -jar /opt/development/armitage/armitage.jar \$\* > /opt/development/armitage/armitage" &>> ~/LOGFILE.txt
+sudo sh -c "echo java -jar /opt/development/armitage/armitage.jar \$\* > /opt/development/armitage/armitage" 2>> ~/LOGFILE.txt
 
-sudo perl -pi -e 's/armitage.jar/\/opt\/development\/armitage\/armitage.jar/g' /opt/development/armitage/teamserver &>> ~/LOGFILE.txt
+sudo perl -pi -e 's/armitage.jar/\/opt\/development\/armitage\/armitage.jar/g' /opt/development/armitage/teamserver 2>> ~/LOGFILE.txt
 
 
 echo '***********************************************************'
