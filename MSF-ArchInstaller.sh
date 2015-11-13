@@ -37,7 +37,7 @@ cd ruby-2.1
 
 makepkg -s  2>> ~/LOGFILE.txt
 
-sudo pacman -U ruby*.pkg.tar.xz 
+sudo pacman -U --noconfirm ruby*.pkg.tar.xz 
 
 su root
 
