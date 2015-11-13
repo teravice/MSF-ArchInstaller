@@ -39,13 +39,9 @@ makepkg -s  2>> ~/LOGFILE.txt
 
 sudo pacman -U --noconfirm ruby*.pkg.tar.xz 
 
-su root
+sudo echo 'PATH="$(ruby -e "print Gem.user_dir")/bin:$PATH"' >> /etc/profile
 
-echo 'PATH="$(ruby -e "print Gem.user_dir")/bin:$PATH"' >> /etc/profile
-
-echo 'export PATH' >> /etc/profile
-
-exit
+sudo echo 'export PATH' >> /etc/profile
 
 source /etc/profile
 
