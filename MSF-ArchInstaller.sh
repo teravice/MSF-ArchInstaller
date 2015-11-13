@@ -27,7 +27,7 @@ echo '* Downloading,compiling & installing Ruby 2.1.5 from AUR. *'
 echo '***********************************************************'
 echo ''
 
-wget -P /tmp https://aur.archlinux.org/packages/ru/ruby-2.1/ruby-2.1.tar.gz  2>> ~/LOGFILE.txt
+wget -P /tmp https://aur.archlinux.org/cgit/aur.git/snapshot/ruby-2.1.tar.gz  2>> ~/LOGFILE.txt
 
 cd /tmp
 
