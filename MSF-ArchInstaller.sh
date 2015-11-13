@@ -23,7 +23,7 @@ sudo pacman -Syyu --noconfirm 2>> ~/LOGFILE.txt
 sudo pacman -S --needed --noconfirm wget git gcc patch curl zlib readline autoconf automake diffutils make libtool bison subversion gnupg postgresql python python2-pysqlite-legacy gtk2 pygtk 2>> ~/LOGFILE.txt
 
 echo '***********************************************************'
-echo '* Downloading,compiling & installing Ruby 2.1.5 from AUR. *' 
+echo '* Downloading,compiling & installing Ruby 2.1 from AUR. *' 
 echo '***********************************************************'
 echo ''
 
