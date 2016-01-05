@@ -105,6 +105,10 @@ echo '* the user msf and the database msf.***********************'
 echo '***********************************************************'
 echo ''
 
+chown -R postgres:postgres /var/lib/postgres/ 2>> ~/LOGFILE.txt
+
+su - postgres -c "initdb --locale en_US.UTF-8 -D '/var/lib/postgres/data'" 2>> ~/LOGFILE.txt
+
 sudo systemctl start postgresql 2>> ~/LOGFILE.txt
 
 sudo systemctl enable postgresql 2>> ~/LOGFILE.txt
