@@ -7,7 +7,7 @@ echo '***********************************************************'
 echo '* Metasploit  Framework  Git  Installer  for  Arch  Linux *' 
 echo '* brought to you by teravice. Distributed under GPLv3  ****'
 echo '* teravice[at]protonmail.ch *******************************'
-echo '* www.0x3f.xyz ********************************************' 
+echo '* blog.rawsocket.io****************************************' 
 echo '***********************************************************'
 echo ''
 
@@ -107,15 +107,23 @@ echo ''
 
 chown -R postgres:postgres /var/lib/postgres/ 2>> ~/LOGFILE.txt
 
-su - postgres -c "initdb --locale en_US.UTF-8 -D '/var/lib/postgres/data'" 2>> ~/LOGFILE.txt
+sudo -s
+
+su postgres
 
 sudo systemctl start postgresql 2>> ~/LOGFILE.txt
 
 sudo systemctl enable postgresql 2>> ~/LOGFILE.txt
 
-sudo -u postgres createuser msf -P -S -R -D 2>> ~/LOGFILE.txt
+initdb --locale en_US.UTF-8 -D '/var/lib/postgres/data' 2>> ~/LOGFILE.txt
 
-sudo -u postgres createdb -O msf msf 2>> ~/LOGFILE.txt
+createuser msf -P -S -R -D 2>> ~/LOGFILE.txt
+
+createdb -O msf msf 2>> ~/LOGFILE.txt
+
+exit
+
+exit
 
 cd /opt/development
 
