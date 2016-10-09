@@ -6,8 +6,8 @@ date 2>> ~/LOGFILE.txt
 echo '***********************************************************'
 echo '* Metasploit  Framework  Git  Installer  for  Arch  Linux *' 
 echo '* brought to you by teravice. Distributed under GPLv3  ****'
-echo '* teravice[at]protonmail.ch *******************************'
-echo '* blog.rawsocket.io****************************************' 
+echo '* teravice[at]rawsocket.io ********************************'
+echo '* www.rawsocket.io*****************************************' 
 echo '***********************************************************'
 echo ''
 
