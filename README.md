@@ -8,7 +8,7 @@ The script will :
   
 and then download, configure and install:
   
-* ruby 2.1.5 from AUR
+* ruby using RVM
   
 * nmap from SVN
   
