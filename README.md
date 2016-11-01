@@ -20,4 +20,4 @@ and then download, configure and install:
   
 The whole idea came up to me when I saw http://www.darkoperator.com/installing-metasploit-in-ubunt/ and realized that we can't wait everything from some persons. We have to do our part too. Congrats to DarkOperator for his great work. The main idea and some parts of the code are taken from him. 
 
-#####This project is distributed under GPLv3.
+#####This project is distributed under MIT.
