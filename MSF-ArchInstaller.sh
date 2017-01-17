@@ -8,8 +8,8 @@ date 2>> ~/LOGFILE.txt
 echo '***********************************************************'
 echo '* Metasploit  Framework  Git  Installer  for  Arch  Linux *' 
 echo '* brought to you by teravice. Distributed under GPLv3  ****'
-echo '* teravice[at]rawsocket.io ********************************'
-echo '* www.rawsocket.io*****************************************' 
+echo '* teravice[at]gmail.com************************************'
+echo '* www.0x3f.co**********************************************' 
 echo '***********************************************************'
 echo ''
 
@@ -131,9 +131,11 @@ curl -L https://get.rvm.io | bash -s stable
 
 echo "source ~/.rvm/scripts/rvm" >> ~/.bashrc
 
-rvm install 2.3.1
+source ~/.rvm/scripts/rvm
 
-rvm use 2.3.1 --default
+rvm install 2.3.3
+
+rvm use 2.3.3 --default
 
 
 echo '***********************************************************'
@@ -148,7 +150,7 @@ gem install wirble sqlite3 bundler 2>> ~/LOGFILE.txt
 
 bundle install 2>> ~/LOGFILE.txt
 
-sudo chmod a+r /usr/lib/ruby/gems/2.3.0/gems/robots-0.10.1/lib/robots.rb
+sudo chmod a+r ~/.rvm/gems/ruby-2.3.3/gems/robots-0.10.1/lib/robots.rb
 
 
 echo '***********************************************************'
@@ -186,7 +188,7 @@ curl -# -o ~/dev/armitage.tgz
 http://www.fastandeasyhacking.com/download/armitage150813.tgz 2>> 
 ~/LOGFILE.txt
 
-sudo tar -xvzf ~/dev/armitage.tgz -C ~/dev 2>> ~/LOGFILE.txt
+tar -xvzf ~/dev/armitage.tgz -C ~/dev 2>> ~/LOGFILE.txt
 
 sudo ln -s ~/dev/armitage/armitage /usr/local/bin/armitage 
 2>> ~/LOGFILE.txt
