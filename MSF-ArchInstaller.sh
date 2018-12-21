@@ -9,7 +9,6 @@ echo '***********************************************************'
 echo '* Metasploit  Framework  Git  Installer  for  Arch  Linux *' 
 echo '* brought to you by teravice. Distributed under GPLv3  ****'
 echo '* teravice[at]gmail.com************************************'
-echo '* www.0x3f.co**********************************************' 
 echo '***********************************************************'
 echo ''
 
