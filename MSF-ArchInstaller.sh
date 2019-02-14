@@ -1,7 +1,5 @@
-echo 'Initializing installation of Metasploit Framework from Github.' 2> 
-~/LOGFILE.txt
-echo "Installation started from $USER at $HOSTNAME at " 2>> 
-~/LOGFILE.txt
+echo 'Initializing installation of Metasploit Framework from Github.' 2> ~/LOGFILE.txt
+echo "Installation started from $USER at $HOSTNAME at " 2>> ~/LOGFILE.txt
 date 2>> ~/LOGFILE.txt
 
 
@@ -20,10 +18,7 @@ echo ''
 sudo pacman -Syyu --noconfirm 2>> ~/LOGFILE.txt
 
 
-sudo pacman -S --needed --noconfirm wget git gcc patch curl zlib 
-readline autoconf automake diffutils make libtool bison subversion gnupg 
-postgresql python python2-pysqlite-legacy gtk2 pygtk libpcap jdk7-openjdk 2>> 
-~/LOGFILE.txt
+sudo pacman -S --needed --noconfirm wget git gcc patch curl zlib readline autoconf automake diffutils make libtool bison subversion gnupg postgresql python python2-pysqlite-legacy gtk2 pygtk libpcap jdk7-openjdk 2>> ~/LOGFILE.txt
 
 
 echo '***********************************************************'
@@ -84,8 +79,7 @@ chown -R postgres:postgres /var/lib/postgres/ 2>> ~/LOGFILE.txt
 
 su postgres
 
-initdb --locale en_US.UTF-8 -D '/var/lib/postgres/data' 2>> 
-~/LOGFILE.txt
+initdb --locale en_US.UTF-8 -D '/var/lib/postgres/data' 2>> ~/LOGFILE.txt
 
 exit
 
@@ -111,8 +105,7 @@ echo '* After cloning is complete,bundle install will be run so *'
 echo '* all the required gems will be installed directly. *******'
 echo '***********************************************************'
 echo ''
-git clone https://github.com/rapid7/metasploit-framework.git 2>> 
-~/LOGFILE.txt
+git clone https://github.com/rapid7/metasploit-framework.git 2>> ~/LOGFILE.txt
 
 cd metasploit-framework
 
@@ -122,11 +115,9 @@ echo '* Downloading,compiling & installing RVM. *****************'
 echo '***********************************************************'
 echo ''
 
-curl -sSL https://rvm.io/mpapis.asc | gpg --import - 2>> 
-~/LOGFILE.txt
+curl -sSL https://rvm.io/mpapis.asc | gpg --import - 2>> ~/LOGFILE.txt
 
 curl -L https://get.rvm.io | bash -s stable
-
 
 echo "source ~/.rvm/scripts/rvm" >> ~/.bashrc
 
@@ -159,21 +150,14 @@ echo '* msfconsole can connect to postgres automatically. *******'
 echo '***********************************************************'
 echo ''
 
-sudo bash -c 'for MSF in $(ls msf*); do ln -s $PWD/$MSF 
-/usr/local/bin/$MSF;done' 2>> ~/LOGFILE.txt
+sudo bash -c 'for MSF in $(ls msf*); do ln -s $PWD/$MSF /usr/local/bin/$MSF;done' 2>> ~/LOGFILE.txt
 
-sudo echo -e 'production:\n adapter: postgresql\n database: msf\n 
-username: msf\n password: \n host: 127.0.0.1\n port: 5432\n pool: 75\n 
-timeout: 5\n' > 
-~/dev/metasploit-framework/config/database.yml 2>> 
-~/LOGFILE.txt
+sudo echo -e 'production:\n adapter: postgresql\n database: msf\n username: msf\n password: \n host: 127.0.0.1\n port: 5432\n pool: 75\n timeout: 5\n' > 
+~/dev/metasploit-framework/config/database.yml 2>> ~/LOGFILE.txt
 
-sudo sh -c "echo export 
-MSF_DATABASE_CONFIG=~/dev/metasploit-framework/config/database.yml 
->> /etc/profile" 2>> ~/LOGFILE.txt
+sudo sh -c "echo export MSF_DATABASE_CONFIG=~/dev/metasploit-framework/config/database.yml >> /etc/profile" 2>> ~/LOGFILE.txt
 
 source /etc/profile
-
 
 echo '***********************************************************'
 echo '* Downloading the latest version of Armitage. *************' 
@@ -183,14 +167,11 @@ echo '***********************************************************'
 echo ''
 
 
-curl -# -o ~/dev/armitage.tgz 
-http://www.fastandeasyhacking.com/download/armitage150813.tgz 2>> 
-~/LOGFILE.txt
+curl -# -o ~/dev/armitage.tgz http://www.fastandeasyhacking.com/download/armitage150813.tgz 2>> ~/LOGFILE.txt
 
 tar -xvzf ~/dev/armitage.tgz -C ~/dev 2>> ~/LOGFILE.txt
 
-sudo ln -s ~/dev/armitage/armitage /usr/local/bin/armitage 
-2>> ~/LOGFILE.txt
+sudo ln -s ~/dev/armitage/armitage /usr/local/bin/armitage 2>> ~/LOGFILE.txt
 
 sudo ln -s ~/dev/armitage/teamserver /usr/local/bin/teamserver 2>> ~/LOGFILE.txt
 
