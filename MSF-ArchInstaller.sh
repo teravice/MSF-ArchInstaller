@@ -152,8 +152,7 @@ echo ''
 
 sudo bash -c 'for MSF in $(ls msf*); do ln -s $PWD/$MSF /usr/local/bin/$MSF;done' 2>> ~/LOGFILE.txt
 
-sudo echo -e 'production:\n adapter: postgresql\n database: msf\n username: msf\n password: \n host: 127.0.0.1\n port: 5432\n pool: 75\n timeout: 5\n' > 
-~/dev/metasploit-framework/config/database.yml 2>> ~/LOGFILE.txt
+sudo echo -e 'production:\n adapter: postgresql\n database: msf\n username: msf\n password: \n host: 127.0.0.1\n port: 5432\n pool: 75\n timeout: 5\n' > ~/dev/metasploit-framework/config/database.yml 2>> ~/LOGFILE.txt
 
 sudo sh -c "echo export MSF_DATABASE_CONFIG=~/dev/metasploit-framework/config/database.yml >> /etc/profile" 2>> ~/LOGFILE.txt
 
