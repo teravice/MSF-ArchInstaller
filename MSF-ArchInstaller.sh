@@ -5,8 +5,8 @@ date 2>> ~/LOGFILE.txt
 
 echo '***********************************************************'
 echo '* Metasploit  Framework  Git  Installer  for  Arch  Linux *' 
-echo '* brought to you by teravice. Distributed under GPLv3  ****'
-echo '* teravice[at]gmail.com************************************'
+echo '* brought to you by qucrypt. Distributed under GPLv3  *****'
+echo '* qucrypt[at]0x3f.dev**************************************'
 echo '***********************************************************'
 echo ''
 
